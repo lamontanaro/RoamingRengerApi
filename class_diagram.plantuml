@@ -1,0 +1,56 @@
+@startuml
+class User {
+    - userId: int
+    - name: string
+    - email: string
+    - password: string
+    + register()
+    + login()
+    + hasRole(role: string): boolean
+}
+
+class TouristAttraction {
+    - attractionId: int
+    - name: string
+    - description: string
+    - location: string
+    - image: string
+    + viewAttraction()
+}
+
+class Category {
+    - categoryId: int
+    - name: string
+}
+
+class Booking {
+    - bookingId: int
+    - userId: int
+    - attractionId: int
+}
+
+class Comment {
+    - commentId: int
+    - userId: int
+    - attractionId: int
+    - comment: string
+    - isBooked: boolean
+    + addComment()
+}
+
+class Rating {
+    - ratingId: int
+    - userId: int
+    - attractionId: int
+    - score: int
+    - isBooked: boolean
+    + addRating()
+}
+
+User "1" -- "0..*" Comment
+User "1" -- "0..*" Rating
+TouristAttraction "1" -- "0..*" Comment
+TouristAttraction "1" -- "0..*" Rating
+TouristAttraction "0..*" -- "0..*" Booking
+Category "1" -- "0..*" TouristAttraction
+@enduml

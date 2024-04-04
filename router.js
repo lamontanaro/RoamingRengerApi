@@ -5,5 +5,6 @@ const touristAttractionController = require('./controllers/touristAttractionCont
 
 router.get('/touristAttractions/', touristAttractionController.getAllAttractions);
 router.post('/touristAttractions/', touristAttractionController.createAttractions);
+router.put('/touristAttractions/:id', touristAttractionController.updateAttractions);
 
 module.exports = router;

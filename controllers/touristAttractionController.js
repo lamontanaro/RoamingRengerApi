@@ -25,4 +25,15 @@ exports.createAttractions = async (req, res) => {
   }
 }
 
+exports.updateAttractions = async (req, res) =>{
+  try {
+    const updateAttractions = await TouristAttraction.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    });
+    res.status(201).json(updateAttractions);
+  } catch (error) {
+    res.status(400).json("No se pudo modificar la atraccion.");
+  }
+}
+
 

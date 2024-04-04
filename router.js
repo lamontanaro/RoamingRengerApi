@@ -4,5 +4,8 @@ const router = express.Router();
 const touristAttractionController = require('./controllers/touristAttractionController');
 
 router.get('/touristAttractions/', touristAttractionController.getAllAttractions);
-
+router.post('/touristAttractions/', touristAttractionController.createAttraction);
+router.get('/touristAttractions/:id', touristAttractionController.getOneAttraction);
+router.put('/touristAttractions/:id', touristAttractionController.updateAttraction);
+router.delete('/touristAttractions/:id', touristAttractionController.deleteAttraction);
 module.exports = router;

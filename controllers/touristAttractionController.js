@@ -51,3 +51,14 @@ exports.deleteAttractions = async (req, res) =>{
     res.status(400).json("No se pudo eliminar la atraccion.")
   }
 }
+
+
+//METODO GET byID
+exports.getAttractionsById = async (req, res) =>{
+  try {
+    const getAttractionsById = await TouristAttraction.findById(req.params.id);
+    res.status(201).json(getAttractionsById);
+  } catch (error) {
+    res.status(400).json("No se encontro la atraccion")
+  }
+}

@@ -10,4 +10,5 @@ const touristAttractionSchema = new mongoose.Schema({
 
 const TouristAttraction = mongoose.model('TouristAttraction', touristAttractionSchema);
 
+
 module.exports = TouristAttraction;

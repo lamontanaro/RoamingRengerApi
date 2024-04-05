@@ -9,7 +9,7 @@ exports.getAllAttractions = async (req, res) => {
   }
 };
 
-exports.getOneAttraction = async (req, res) => {
+exports.getAttractionById = async (req, res) => {
   try{
     const attraction = await TouristAttraction.findById(req.params.id);
     res.status(200).json(attraction);
@@ -21,13 +21,7 @@ exports.getOneAttraction = async (req, res) => {
 
 exports.createAttraction = async (req,res) => {
   try{
-    const attraction = new TouristAttraction ({
-      attractionId: req.body.id,
-      name: req.body.name,
-      description: req.body.description,
-      location: req.body.location,
-      image: req.body.image
-    })
+    const attraction = new TouristAttraction (req.body)
     const newAttraction = await attraction.save()
     res.status(201).json(newAttraction);
   }

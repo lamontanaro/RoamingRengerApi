@@ -13,13 +13,7 @@ exports.getAllAttractions = async (req, res) => {
 //METODO POST
 exports.createAttractions = async (req, res) => {
   try {
-    const createAttraction = new TouristAttraction({
-      attractionId: req.body.id,
-      name: req.body.name,
-      description: req.body.description,
-      location: req.body.location,
-      image: req.body.image
-    })
+    const createAttraction = new TouristAttraction(req.body)
     const newAttraction = await createAttraction.save();
     res.status(201).json(newAttraction);
   } catch (error) {
@@ -30,10 +24,13 @@ exports.createAttractions = async (req, res) => {
 //METODO PUT
 exports.updateAttractions = async (req, res) =>{
   try {
-    const updateAttraction = await TouristAttraction.findByIdAndUpdate(req.params.id, req.body, {
+    const updatedAttraction = await TouristAttraction.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     });
-    res.status(201).json(updateAttraction);
+    if(!updatedAttraction){
+      res.status(404).json("Atraccion no encontrada");
+    }
+    res.status(201).json(updatedAttraction);
   } catch (error) {
     res.status(400).json("No se pudo modificar la atraccion.");
   }
@@ -42,8 +39,8 @@ exports.updateAttractions = async (req, res) =>{
 //METODO DELETE
 exports.deleteAttractions = async (req, res) =>{
   try {
-    const deleteAttraction = await TouristAttraction.findByIdAndDelete(req.params.id);
-    if(!deleteAttraction){
+    const deletedAttraction = await TouristAttraction.findByIdAndDelete(req.params.id);
+    if(!deletedAttraction){
       res.status(404).json("Atraccion no encontrada");
     }
     res.status(201).json("Atraccion borrada correctamente.");
@@ -56,8 +53,8 @@ exports.deleteAttractions = async (req, res) =>{
 //METODO GET byID
 exports.getAttractionsById = async (req, res) =>{
   try {
-    const getAttractionsById = await TouristAttraction.findById(req.params.id);
-    res.status(201).json(getAttractionsById);
+    const attraction = await TouristAttraction.findById(req.params.id);
+    res.status(201).json(attraction);
   } catch (error) {
     res.status(400).json("No se encontro la atraccion")
   }

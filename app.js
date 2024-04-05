@@ -24,3 +24,5 @@ app.use('/', routes);
 app.listen(PORT, () => {
   console.log(`Servidor en ejecución en http://localhost:${PORT}`);
 });
+
+module.exports = app;

@@ -33,7 +33,7 @@ exports.createAttraction = async (req,res) => {
 exports.updateAttraction = async (req, res) => {
   try{
     const updateAttraction = await TouristAttraction.findByIdAndUpdate(req.params.id, req.body, {new: true});
-  res.status(200).json(updateAttraction);
+  res.status(201).json(updateAttraction);
   }
   catch(error) {
     res.status(400).json({message:error.message});

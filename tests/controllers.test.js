@@ -38,11 +38,18 @@ describe('Get all Tourist Attractions', () => {
     }); 
 })
 
+describe('Get one tourist attraction', () => {
+    it('Should get one tourist attraction and return status code 200', async () => {
+        const response = await request(app).get('/touristAttractions/6610802a03f3bdde33e4bd15')
+        expect(response.statusCode).toEqual(200)
+    })
+})
+
 describe('Update tourist attraction', () => {
     it('Should update a tourist attraction and return status code 200', async () => {
         const body = {name: 'parque', description: 'muy muy lindo'}
         const response = await request(app).put('/touristAttractions/6610802a03f3bdde33e4bd15').send(body)
-        expect(response.statusCode).toEqual(200)
+        expect(response.statusCode).toEqual(201)
     })
 })
 

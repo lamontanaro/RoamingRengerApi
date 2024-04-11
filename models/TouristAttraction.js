@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const touristAttractionSchema = new mongoose.Schema({
   attractionId: Number,
-  name: String,
-  description: String,
+  name: { type: String, required : true},
+  description: { type: String, required : true},
   location: String,
   image: String
 });

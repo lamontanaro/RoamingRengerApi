@@ -98,3 +98,20 @@ describe('Delete Attractions', ()=>{
     })
 
 });
+
+describe('Get one touristAttraction', ()=>{
+
+    it('returns status code 201 if an attraction is returned', async ()=>{
+        const res = await request(app).get('/touristAttractions/661847a7ec920c615264a242');
+
+        expect(res.statusCode).toEqual(201);
+    });
+
+    it('return status code 404 if tourist attraction not found', async() => {
+        TouristAttraction.findById = jest.fn().mockRejectedValue(new Error('Attraction not found'));
+        const response = await request(app).get('/touristAttractions/661847a7ec920c615264a242')
+        expect(response.statusCode).toBe(404);
+        expect(response.body).toEqual({'message': 'Attraction not found'});
+    })
+
+});

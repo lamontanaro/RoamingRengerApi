@@ -51,6 +51,6 @@ exports.getAttractionsById = async (req, res) =>{
     const attraction = await TouristAttraction.findById(req.params.id);
     res.status(201).json(attraction);
   } catch (error) {
-    res.status(400).json({message: error.message})
+    res.status(404).json({message: error.message})
   }
 }

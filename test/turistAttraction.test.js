@@ -79,3 +79,22 @@ describe('Update Attractions', ()=>{
     });
 
 });
+
+
+describe('Delete Attractions', ()=>{
+
+    it('returns status code 201 if the attraction could be deleted correctly ', async ()=>{
+        const res = await request(app).delete('/touristAttractions/6618497e3b20d4d1fef649e0');
+
+        expect(res.statusCode).toEqual(201);
+    });
+
+
+    it('return status code 500 if there are not tourist attractions', async() => {
+        TouristAttraction.findByIdAndDelete = jest.fn().mockRejectedValue(new Error('Database connection failed'));
+        const response = await request(app).delete('/touristAttractions/6618497e3b20d4d1fef649e0')
+        expect(response.statusCode).toBe(500);
+        expect(response.body).toEqual({message: 'Database connection failed'});
+    })
+
+});

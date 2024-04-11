@@ -40,7 +40,7 @@ exports.deleteAttractions = async (req, res) =>{
     const deletedAttraction = await TouristAttraction.findByIdAndDelete(req.params.id);
     res.status(201).json("Atraccion borrada correctamente.");
   } catch (error) {
-    res.status(400).json({message: error.message})
+    res.status(500).json({message: error.message})
   }
 }
 

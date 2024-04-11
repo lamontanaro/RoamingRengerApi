@@ -5,7 +5,8 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "test" : "jest"
+        "test" : "jest",
+        "test:coverage": "jest --coverage"
     },
     "dependencies": {
         "express": "^4.17.1",

@@ -25,11 +25,9 @@ exports.createAttractions = async (req, res) => {
 exports.updateAttractions = async (req, res) =>{
   try {
     const updatedAttraction = await TouristAttraction.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
+      new: true,
+      runValidators: true
     });
-    if(!updatedAttraction){
-      res.status(404).json({message: error.message});
-    }
     res.status(201).json(updatedAttraction);
   } catch (error) {
     res.status(400).json({message: error.message});
@@ -40,9 +38,6 @@ exports.updateAttractions = async (req, res) =>{
 exports.deleteAttractions = async (req, res) =>{
   try {
     const deletedAttraction = await TouristAttraction.findByIdAndDelete(req.params.id);
-    if(!deletedAttraction){
-      res.status(404).json({message: error.message});
-    }
     res.status(201).json("Atraccion borrada correctamente.");
   } catch (error) {
     res.status(400).json({message: error.message})

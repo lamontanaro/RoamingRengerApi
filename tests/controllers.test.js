@@ -9,7 +9,7 @@ describe('Create Tourist Attraction', () => {
     });
 
     it('returns status code 400 if name is missing', async() => {
-        const res = await request(app).post('/touristAttractions').send({description: 'Amazing places to unwind', location : 'Lima, Peru', image: 'url'})
+        const res = await request(app).post('/touristAttractions').send({description: 'descripcion', location : 'Lima, Peru', image: 'url'})
         expect(res.statusCode).toEqual(400);
         expect(res.body).toEqual({message: 'TouristAttraction validation failed: name: Path `name` is required.'})
     });
@@ -32,9 +32,23 @@ describe('Create Tourist Attraction', () => {
 })
 
 describe('Get all Tourist Attractions', () => {
-    it('Should get all tourist attractions', async () => {
+    it('Should get all tourist attractions and return status code 200', async () => {
         const response = await request(app).get('/touristAttractions')
         expect(response.statusCode).toEqual(200)
     }); 
+})
 
+describe('Update tourist attraction', () => {
+    it('Should update a tourist attraction and return status code 200', async () => {
+        const body = {name: 'parque', description: 'muy muy lindo'}
+        const response = await request(app).put('/touristAttractions/6610802a03f3bdde33e4bd15').send(body)
+        expect(response.statusCode).toEqual(200)
+    })
+})
+
+describe('Delete tourist attraction', () => {
+    it('Should delete a tourist attraction and return status code 201', async () => {
+        const response = await request(app).delete('/touristAttractions/6610802a03f3bdde33e4bd15')
+        expect(response.statusCode).toEqual(201)
+        })
 })

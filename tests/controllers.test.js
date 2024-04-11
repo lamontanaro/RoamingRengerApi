@@ -1,5 +1,6 @@
 const app = require('../app.js');
 const request = require('supertest');
+const TouristAttraction = require('../models/TouristAttraction.js')
 
 describe('Create Tourist Attraction', () => {
     it('should create a new tourist attraction', async () => {
@@ -36,12 +37,24 @@ describe('Get all Tourist Attractions', () => {
         const response = await request(app).get('/touristAttractions')
         expect(response.statusCode).toEqual(200)
     }); 
+    it('if there are no tourist attractions return status code 500', async() => {
+        TouristAttraction.find = jest.fn().mockRejectedValue(new Error('Database connection failed'));
+        const response = await request(app).get('/touristAttractions')
+        expect(response.statusCode).toBe(500);
+        expect(response.body).toEqual({message: 'Database connection failed'});
+    })
 })
 
 describe('Get one tourist attraction', () => {
     it('Should get one tourist attraction and return status code 200', async () => {
         const response = await request(app).get('/touristAttractions/6610802a03f3bdde33e4bd15')
         expect(response.statusCode).toEqual(200)
+    })
+    it(' if not find a Tourist attraction return status code 404 ', async() => {
+        TouristAttraction.findById = jest.fn().mockRejectedValue(new Error('Error'));
+        const response = await request(app).get('//touristAttractions/6610802a03f3bdde33e4bd15')
+        expect (response.statusCode).toBe(404);
+        expect(response.body).toEqual({});
     })
 })
 
@@ -51,6 +64,12 @@ describe('Update tourist attraction', () => {
         const response = await request(app).put('/touristAttractions/6610802a03f3bdde33e4bd15').send(body)
         expect(response.statusCode).toEqual(201)
     })
+    it('if not find a Tourist attraction for update return status code 404', async () => {
+        TouristAttraction.findByIdAndUpdate = jest.fn().mockRejectedValue(new Error('Attraction not found for update'));
+        const response = await request(app).put('/touristAttractions/6610802a03f3bdde33e4bd15')
+        expect(response.statusCode).toBe(404);
+        expect(response.body).toEqual({message: 'Attraction not found for update'});
+    })
 })
 
 describe('Delete tourist attraction', () => {
@@ -58,4 +77,10 @@ describe('Delete tourist attraction', () => {
         const response = await request(app).delete('/touristAttractions/6610802a03f3bdde33e4bd15')
         expect(response.statusCode).toEqual(201)
         })
+    it('if not find a tourist attraction for delete return status code 500', async () => {
+        TouristAttraction.findByIdAndDelete = jest.fn().mockRejectedValue (new Error('Attraction not found for delete'));
+        const response = await request(app).delete('/touristAttractions/6610802a03f3bdde33e4bd15')
+        expect(response.statusCode).toBe(500)
+        expect(response.body).toEqual({message: 'Attraction not found for delete'});
+    })
 })

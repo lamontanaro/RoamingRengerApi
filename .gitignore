@@ -1,0 +1,26 @@
+# Ignorar archivos de dependencias
+/node_modules
+/coverage
+
+# Ignorar archivos de caché
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorar archivos de ambiente
+.env
+
+# Ignorar archivos de construcción
+/build
+
+# Ignorar el archivo de configuración de Visual Studio Code
+.vscode
+
+# Ignorar archivos de registro de errores
+error.log
+
+# Ignorar archivos de respaldo
+**.bak
+**.backup
+**.swp

@@ -38,6 +38,16 @@ describe('Create new attraction - using mock', () => {
     expect(res.body.name).toEqual("zoo");
   });
 
+  it('test Update returns status code 201 if valid params are passed', async () => {
+    const params = { name: 'zoo', description: 'amazing place to unwind' }
+    TouristAttraction.findByIdAndUpdate = jest.fn().mockResolvedValue(params); 
+
+    const res = await request(app).put('/touristAttractions/31234242342342').send(params);
+
+    expect(res.statusCode).toEqual(201);
+    expect(res.body.name).toEqual("zoo");
+  });
+
   it('returns status code 400 if name is missing', async () => {
     TouristAttraction.create = jest.fn().mockRejectedValue(new Error('TouristAttraction validation failed: name: Path `name` is required.'));
 

@@ -30,8 +30,11 @@ exports.getAttractionbyId = async (req, res) => {
 //PUT
 exports.updateAttraction = async (req, res) => {
   const { id } = req.params;
+  console.log("id:", id)
   try {
     const updatedAttraction = await TouristAttraction.findByIdAndUpdate(id, req.body, { new: true });
+    console.log(updatedAttraction)
+
     if (!updatedAttraction) {
       return res.status(404).json({ message: 'Atracción turística no encontrada' });
     }

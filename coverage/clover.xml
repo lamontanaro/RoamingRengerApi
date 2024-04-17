@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1712871578855" clover="3.2.0">
-  <project timestamp="1712871578855" name="All files">
-    <metrics statements="55" coveredstatements="54" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="64" coveredelements="63" complexity="0" loc="55" ncloc="55" packages="3" files="4" classes="4"/>
+<coverage generated="1713366577002" clover="3.2.0">
+  <project timestamp="1713366577002" name="All files">
+    <metrics statements="110" coveredstatements="78" conditionals="14" coveredconditionals="2" methods="12" coveredmethods="7" elements="136" coveredelements="87" complexity="0" loc="110" ncloc="110" packages="4" files="7" classes="7"/>
     <package name="RoamingRengerApi">
-      <metrics statements="24" coveredstatements="24" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <file name="app.js" path="C:\Users\giuli\Desktop\Proyectos\RoamingRengerApi\app.js">
+      <metrics statements="34" coveredstatements="34" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="app.js" path="C:\Users\ROG BY NG\OneDrive\Escritorio\RoamingRengerApi\RoamingRengerApi\app.js">
         <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -22,22 +22,32 @@
         <line num="25" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
       </file>
-      <file name="router.js" path="C:\Users\giuli\Desktop\Proyectos\RoamingRengerApi\router.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="router.js" path="C:\Users\ROG BY NG\OneDrive\Escritorio\RoamingRengerApi\RoamingRengerApi\router.js">
+        <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
       </file>
     </package>
     <package name="RoamingRengerApi.controllers">
-      <metrics statements="27" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-      <file name="touristAttractionController.js" path="C:\Users\giuli\Desktop\Proyectos\RoamingRengerApi\controllers\touristAttractionController.js">
+      <metrics statements="56" coveredstatements="33" conditionals="6" coveredconditionals="0" methods="8" coveredmethods="5"/>
+      <file name="touristAttractionController.js" path="C:\Users\ROG BY NG\OneDrive\Escritorio\RoamingRengerApi\RoamingRengerApi\controllers\touristAttractionController.js">
         <metrics statements="27" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -67,15 +77,72 @@
         <line num="48" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
       </file>
+      <file name="userController.js" path="C:\Users\ROG BY NG\OneDrive\Escritorio\RoamingRengerApi\RoamingRengerApi\controllers\userController.js">
+        <metrics statements="29" coveredstatements="7" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+      </file>
     </package>
     <package name="RoamingRengerApi.models">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="TouristAttraction.js" path="C:\Users\giuli\Desktop\Proyectos\RoamingRengerApi\models\TouristAttraction.js">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="TouristAttraction.js" path="C:\Users\ROG BY NG\OneDrive\Escritorio\RoamingRengerApi\RoamingRengerApi\models\TouristAttraction.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
+      </file>
+      <file name="User.js" path="C:\Users\ROG BY NG\OneDrive\Escritorio\RoamingRengerApi\RoamingRengerApi\models\User.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="RoamingRengerApi.services">
+      <metrics statements="12" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="authMiddleware.js" path="C:\Users\ROG BY NG\OneDrive\Escritorio\RoamingRengerApi\RoamingRengerApi\services\authMiddleware.js">
+        <metrics statements="12" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
       </file>
     </package>
   </project>

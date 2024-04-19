@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     localField: '_id',
     foreignField: 'createdBy'
   });
-  
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

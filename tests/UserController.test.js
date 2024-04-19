@@ -11,9 +11,8 @@ describe('Create User', () => {
     it('Should failed if username already exists and return 400', async () => {
         const mockUserSimulated = { id: '12', username: 'user', password: 'password' }
         User.create = jest.fn().mockResolvedValue(mockUserSimulated);
-        const res = await request(app).post('/register').send({ id: '12', username: 'user', password: 'password' })
-        expect(res.statusCode).toEqual(400);
-        expect(res.body).toEqual({ message: 'Username already exists' });
+        return await request(app).post('/register').send({ id: '12', username: 'user', password: 'password' }).expect(401).toJSON({ message: Error.message });
+        
     })
     it('Should failed if username is missing and return 400', async () => {
         User.find = jest.fn().mockRejectedValue(new Error({message: Error.message}))

@@ -13,6 +13,12 @@ const userSchema = new mongoose.Schema({
     }
   });
 
+  userSchema.virtual('attractions', {
+    ref: 'TouristAttraction',
+    localField: '_id',
+    foreignField: 'createdBy'
+  });
+  
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

@@ -5,7 +5,8 @@ const touristAttractionSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   location: String,
-  image: String
+  image: String,
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 const TouristAttraction = mongoose.model('TouristAttraction', touristAttractionSchema);

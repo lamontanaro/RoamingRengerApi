@@ -34,11 +34,25 @@ exports.login = async (req, res) => {
         }
 
         if (await bcrypt.compare(password, user.password)) {
-            const token = jwt.sign({ username: user.username }, jwtSecret);
+            const token = jwt.sign({ username: user.username, _id: user._id, }, jwtSecret);
             return res.json({ token });
         } else {
             return res.status(401).json({ message: 'Invalid username or password' });
         }
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
+exports.userAttractions = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const user = await User.findById(userId).populate('attractions');
+
+        if (!user) {
+            return res.status(400).json({ message: 'Invalid username or password' });
+        }
+        return res.json({ user, userAttractions: user.attractions });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

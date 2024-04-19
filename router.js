@@ -10,6 +10,8 @@ router.post('/touristAttractions/', authMiddleware.authenticateToken, touristAtt
 router.put('/touristAttractions/:id', authMiddleware.authenticateToken,touristAttractionController.updateAttraction);
 router.delete('/touristAttractions/:id', authMiddleware.authenticateToken,touristAttractionController.deleteAttraction);
 
+router.get('/myAttractions/', authMiddleware.authenticateToken,userController.userAttractions);
+
 router.post('/register/', userController.register);
 router.post('/login/', userController.login);
 router.post('/logout/', userController.logout);

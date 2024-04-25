@@ -23,8 +23,9 @@ exports.getAllAttractions = async (req, res) => {
 exports.getAttractionbyId = async (req, res) => {
   const { id } = req.params;
   try {
-    const attraction = await TouristAttraction.findById(id)
-    res.json(attraction);
+    const attraction = await TouristAttraction.findById(id).populate('comments')
+    
+    res.json({attraction, comments: attraction.comments});
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

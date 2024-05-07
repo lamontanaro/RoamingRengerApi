@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'mysecret';
+const jwtSecrect = process.env.JWT_SECRET;
 
 exports.authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
@@ -9,7 +9,7 @@ exports.authenticateToken = (req, res, next) => {
         return res.status(401).json({message : 'Access token is missing'});
     }
 
-    jwt.verify(token, JWT_SECRET, (err, user) =>{
+    jwt.verify(token, jwtSecrect, (err, user) =>{
         if (err) {
             return res.status(403).json({message : 'Invalid token'});
         }

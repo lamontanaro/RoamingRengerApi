@@ -2,7 +2,9 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const { json } = require('express');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'mysecret';
+
+const jwtSecrect = process.env.JWT_SECRET;
+
 
 //Metodo POST
 exports.register = async(req, res) =>{
@@ -18,7 +20,7 @@ exports.register = async(req, res) =>{
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = { username, password: hashedPassword };
-        User.create(newUser);
+        await User.create(newUser);
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -35,7 +37,7 @@ exports.login = async (req, res) => {
         }
 
         if(await bcrypt.compare(password, user.password)) {
-            const token = jwt.sign({ username: user.username }, JWT_SECRET);
+            const token = jwt.sign({ username: user.username }, jwtSecrect);
             return res.json({ token });
         }else{
             return res.status(401).json({ message: 'Invalid username or password' });

@@ -46,11 +46,13 @@ exports.deleteAttractions = async (req, res) =>{
 
 
 //METODO GET byID
-exports.getAttractionsById = async (req, res) =>{
+exports.getAttractionbyId = async (req, res) => {
+  const { id } = req.params;
   try {
-    const attraction = await TouristAttraction.findById(req.params.id);
-    res.status(201).json(attraction);
+    const attraction = await TouristAttraction.findById(id).populate('comments')
+
+    res.json({attraction, comments: attraction.comments});
   } catch (error) {
-    res.status(404).json({message: error.message})
+    res.status(500).json({ message: error.message });
   }
 }

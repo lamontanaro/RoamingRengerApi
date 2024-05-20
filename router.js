@@ -5,13 +5,17 @@ const authMiddleware = require('./services/authMiddleware');
 const touristAttractionController = require('./controllers/touristAttractionController');
 const userController = require('./controllers/userController');
 const categoryController = require('./controllers/categoryController');
+const commentController = require('./controllers/commentController');
 
 //Tourist Attractions 
 router.get('/touristAttractions/', authMiddleware.authenticateToken,touristAttractionController.getAllAttractions);
-router.get('/touristAttractions/:id', authMiddleware.authenticateToken,touristAttractionController.getAttractionsById);
+router.get('/touristAttractions/:id', authMiddleware.authenticateToken,touristAttractionController.getAttractionById);
 router.post('/touristAttractions/', authMiddleware.authenticateToken,touristAttractionController.createAttractions);
 router.put('/touristAttractions/:id', authMiddleware.authenticateToken,touristAttractionController.updateAttractions);
 router.delete('/touristAttractions/:id', authMiddleware.authenticateToken,touristAttractionController.deleteAttractions);
+
+//Comment
+router.post('/comment', authMiddleware.authenticateToken,com)
 
 //Category
 router.post('/category', authMiddleware.authenticateToken,categoryController.createCategory);

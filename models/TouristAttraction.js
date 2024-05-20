@@ -10,6 +10,11 @@ const touristAttractionSchema = new mongoose.Schema({
   belongsTo: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
 });
 
+touristAttractionSchema.virtual('comments', {
+  ref: 'Comment',
+  localField: '_id',
+  foreignField: 'relatedTo'
+});
 
 const TouristAttraction = mongoose.model('TouristAttraction', touristAttractionSchema);
 
